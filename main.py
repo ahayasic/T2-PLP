@@ -6,6 +6,7 @@ import os
 
 from model import SmallMLP, MediumMLP, BigMLP
 
+# Perform training
 def training_process(train_operations, x_train, y_train):
     print ('---------------- Processo de Treinamento ----------------')
     
@@ -40,7 +41,7 @@ def training_process(train_operations, x_train, y_train):
     print('Processo concluído!\n'
           'Tempo Gasto: %.0f minuto(s) e %.2f segundos' % (minutes, seconds))
 
-
+# Perform testing
 def test_process(test_operations, x_test, y_test):
     print ('---------------- Processo de Teste ----------------')
     
@@ -75,9 +76,7 @@ def test_process(test_operations, x_test, y_test):
     print('Processo concluído!\n'
           'Tempo Gasto: %.0f minuto(s) e %.2f segundo(s)' % (minutes, seconds))
 
-
-
-
+# Load datasets and generate train and test
 def load_data():
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -89,7 +88,7 @@ def load_data():
 
     return x_train, y_train, x_test, y_test
 
-
+# Main function
 def main():
     numpy.random.seed(1)
     x_train, y_train, x_test, y_test = load_data()
@@ -109,7 +108,6 @@ def main():
     test_process(test_operations, x_test, y_test)
     
     print("Experimento concluído!")
-
 
 if __name__ == '__main__':    
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
